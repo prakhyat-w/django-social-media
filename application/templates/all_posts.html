@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+{% block heading %}
+{% if user.is_authenticated %}
+Welcome {{user.username}}!
+{% else %}
+Hello!
+{% endif %}
+
+{% if user.is_authenticated == False %}
+<h6 class='text-center'>Login or register to add a post.</h6>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<a class='btn btn-primary mb-4' href={% url "create_post" %}>Add New Post</a>
+<div class="container row gap-3">
+
+  {% for post in posts %}
+  <div class="card" style="width: 18rem;">
+    <img src={{post.photo.url}} class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{post.user.username}}</h5>
+      <p class="card-text">{{post.text}}</p>
+      {% if post.user == user %}
+      <a href={% url "edit_post" post.id%} class="btn btn-primary">Edit</a>
+      <a href={% url "delete_post" post.id%} class="btn btn-danger">Delete</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

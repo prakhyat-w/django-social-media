@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+{% block heading %}Are you sure?{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center">
+    <form action="" method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger">Delete Post</button>
+        <a href={% url "all_posts" %} class="btn btn-success">Go Back</a>
+    </form>
+</div>
+{% endblock %}

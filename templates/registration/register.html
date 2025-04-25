@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}
+Register | MySpam
+{% endblock %}
+
+{% block heading %}
+Register New User
+{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class="d-flex">
+            <button class="btn btn-warning me-2">Submit</button>
+            <a href= {% url "login" %} class="btn btn-primary">Already have an account?</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
