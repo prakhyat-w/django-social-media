@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}Welcome to MySpam{% endblock %}
+
+{% block heading %}MySpam{% endblock %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center">
+    <p>Hello! This is just a welcome page. Click the button below to go to MySpam home.</p>
+</div>
+<div class="container d-flex justify-content-center">
+    <a class="btn btn-success" href= {% url "all_posts" %}>Click Me!</a>
+</div>
+{% endblock %}
